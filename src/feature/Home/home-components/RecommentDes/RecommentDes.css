@@ -1,0 +1,32 @@
+.yemm_desti_inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.yemm_desti_blog {
+    position: relative
+}
+
+.yemm_desti_inner>h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:600;
+    font-size: 20px;
+    color: white
+}
+
+.yemm_desti_inner>label {
+    color: white;
+    font-weight:400
+}
+.main_hadding{
+    font-size:40px;
+    margin:60px 0px 60px 0px
+}

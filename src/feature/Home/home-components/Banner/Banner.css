@@ -1,0 +1,38 @@
+/* Background */
+video {
+    width: 100%;
+    height: 100%
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+}
+
+/* Content and Booking Form */
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white
+}
+
+.content>h1 {
+    font-size: 60px
+}
+
+.content>p {
+    font-size: 30px
+}
+
+#booking-form {
+    width: 70%;
+    background-color: white;
+    padding: 30px;
+    border: 10px solid rgba(5, 105, 5, 0.779)
+}

@@ -1,0 +1,34 @@
+/* Nav  */
+#nav-item {
+    color: white
+}
+
+#nav-item:hover {
+    color: rgba(174, 237, 174, 0.586)
+}
+
+/* Custom NavLink */
+.active-item {
+    color: rgb(97, 220, 97) !important
+}
+
+/* Search Nav */
+#search-btn {
+    color: rgb(104, 248, 104);
+    border: 2px solid rgb(138, 232, 138)
+}
+
+#search-btn:hover {
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    transition: all 0.3s ease-in-out
+}
+
+
+.nav-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index:999
+}

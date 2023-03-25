@@ -1,0 +1,11 @@
+.form-control{
+    display:flex;
+    justify-content: space-between
+}
+.form-control>input{
+    width:293px
+}
+.form-control>select {
+    width:293px
+
+}

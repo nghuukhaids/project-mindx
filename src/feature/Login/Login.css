@@ -1,0 +1,22 @@
+
+.active {
+    color: green !important
+}
+
+#home-head {
+    font-size: 30px;
+    color: white
+}
+
+#home-head:hover {
+    color: rgba(186, 237, 186, 0.429)
+}
+
+#login-head {
+    font-size: 30px;
+    color: white
+}
+.login{
+    background-image: url(../../Asset/img/Login.jpg);
+    
+}
