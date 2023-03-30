@@ -1,0 +1,33 @@
+ul li {
+    list-style: none
+}
+
+.formdetail {
+    padding-bottom: 20px
+}
+
+#adult {
+    width: 60px;
+    margin-left: 10px
+}
+
+#children {
+    width: 60px;
+    margin-left: 10px
+}
+
+.banner>p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    z-index:999;
+    color:rgb(148, 255, 148);
+    left:50%;
+    font-size:60px;
+
+}
+
+.banner {
+    position: relative;
+    margin-bottom:50px
+}

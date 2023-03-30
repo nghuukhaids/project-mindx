@@ -6,7 +6,7 @@ import TPHCM from "../../../../Asset/img/TPHCM.jpg"
 import NhaTrang from "../../../../Asset/img/NhaTrang.jpg"
 export default function RecommentDes() {
     return (
-        <div classNameName="recomment">
+        <div className="recomment">
             <section className="padding_75 recommended_destinations">
                 <div className="container">
                     <div className="row">

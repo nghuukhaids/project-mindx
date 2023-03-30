@@ -26,16 +26,53 @@ export default function LoginAdmin() {
         )
     }
 
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     if (
+    //         formValue.email === "admin@gmail.com" && formValue.password === "123123"
+    //     ) {
+
+    //         const json = JSON.stringify(formValue);
+    //         localStorage.setItem("username", json)
+    //         setUser({});
+    //         navigate("/admin");
+    //         const user = localStorage.getItem("username");
+    //         const data = JSON.parse(user);
+    //         setAdmin({ email: data.email, password: data.password })
+    //         console.log(data);
+    //         setAdmin({ email: formValue.email, password: formValue.password })
+    //     }
+    // }
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (
-            formValue.email === "admin@gmail.com" && formValue.password === "123123"
+        const user = localStorage.getItem("username");
+        const data = JSON.parse(user);
+        if (data &&
+            formValue.email === data.email && formValue.password === data.password
         ) {
             setUser({});
             navigate("/admin");
-            setAdmin({ email: "admin@gmail.com", password: "123123" })
+            setAdmin({ email: data.email, password: data.password })
+            console.log(data);
+        } else if (formValue.email === "admin@gmail.com" && formValue.password === "123123") {
+            const json = JSON.stringify(formValue);
+            localStorage.setItem("username", json);
+            setUser({});
+            navigate("/admin");
+            setAdmin({ email: formValue.email, password: formValue.password })
         }
+        else {alert("Email or Password is incorrect")}
     }
+
+    const user = localStorage.getItem("username");
+    const data = JSON.parse(user);
+    if (data && data.email === "admin@gmail.com" && data.password === "123123") {
+        setUser({});
+        navigate("/admin");
+        setAdmin({ email: data.email, password: data.password })
+        console.log(data);
+    }
+
     return (
         <div div className="login" >
             <section className="vh-100 gradient-custom">

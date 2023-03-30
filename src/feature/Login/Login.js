@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom"
-import { AuthContext, AuthProvider } from "../../Context/AuthContext"
-import { useState, useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext"
+import {  useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import firebase, { auth } from "../../firebase/config";
-
 
 const fbProvider = new firebase.auth.FacebookAuthProvider();
 
@@ -14,16 +13,19 @@ export default function Login() {
         return params.isActive ? "active" : ""
     }
     ////
-
+    const navigate = useNavigate();
     const { setUser, setAdmin } = useContext(AuthContext);
 
     ///// Pop up Login For User
     const handleFbLogin = () => {
         auth.signInWithPopup(fbProvider);
+        setTimeout(() => {
+            navigate("/")
+        }, 4000)
     };
     /////
 
-   
+
     return (
         //         <div div className="login" >
         //             <section className="vh-100 gradient-custom">
@@ -81,7 +83,7 @@ export default function Login() {
                                         <p className="text-white-50 mb-5">Please enter your login and password!</p>
                                         <div className="form-white mb-4">
                                             <label for="typeEmailX">Email</label>
-                                            <input type="email" id="typeEmailX" className="form-control form-control-lg"  />
+                                            <input type="email" id="typeEmailX" className="form-control form-control-lg" />
                                         </div>
                                         <div className="form-white">
                                             <label for="typePasswordX">Password</label>

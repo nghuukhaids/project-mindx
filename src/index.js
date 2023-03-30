@@ -4,14 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthContext } from './Context/AuthContext';
 import { AuthProvider } from './Context/AuthContext';
+import { RoomProvider } from './Context/RoomContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <BrowserRouter>
     <AuthProvider>
-      <App />
+      <RoomProvider>
+        <App />
+      </RoomProvider>
     </AuthProvider>
   </BrowserRouter>
 

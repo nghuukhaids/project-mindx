@@ -7,15 +7,18 @@ import Blog from "./feature/Blog/Blog"
 import ContactUs from "./feature/ContactUs/ContactUs"
 import Login from "./feature/Login/Login"
 import Applayout from './feature/Applayout/Applayout';
-import { useContext } from "react"
 import Admin from './feature/Admin/Admin';
 import { ProtectedRoute } from './feature/ProtectedRoot/ProtectedRoot';
 import LoginAdmin from './feature/Admin/LoginAdmin';
 import Booking from './feature/Admin/Booking';
 import Addroom from './feature/Admin/Addroom';
-import { db } from './firebase/config';
-function App() {
+import RoomDetail from './feature/Room/RoomDetail';
+import User from './feature/User/User';
+import { AuthContext } from './Context/AuthContext';
+import { useContext } from 'react';
 
+function App() {
+  const { user } = useContext(AuthContext)
   return (
 
     <div className="App">
@@ -25,6 +28,8 @@ function App() {
         <Route path="/" element={<Applayout />}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/room" element={<Room />}></Route>
+          <Route path={`/${user.displayName}`} element={<User />}></Route>
+          <Route path="/room/:nameRoom" element={<RoomDetail />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
           <Route path="/contactus" element={<ContactUs />}></Route>

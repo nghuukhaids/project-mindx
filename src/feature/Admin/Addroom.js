@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { db } from "../../firebase/config"
 import "./Addroom.css"
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-
+import { v4 } from "uuid"
 
 export default function Addroom() {
-    const [fileName, setFileName] = useState("No selected File")
+    const [fileName, setFileName] = useState("No selected File");
+    const [imgUpload, setImgUpload] = useState(null);
 
     const uploadData = (collection, data) => {
         db.collection(collection).add(data);
@@ -15,7 +16,7 @@ export default function Addroom() {
             room: "",
             people: "",
             price: "",
-            img: ""
+            add: ""
         }
     )
     const handleChangeValue = (event) => {
@@ -29,25 +30,41 @@ export default function Addroom() {
 
     const storage = getStorage();
 
-    const mountainsRef = ref(storage, fileName);
 
-    const mountainImagesRef = ref(storage, fileName);
+    const handleChangeImg = (event) => {
+        if (event.target.files[0]) {
+            setImgUpload(event.target.files[0])
+        }
+    }
+    const upLoad = () => {
+        if (imgUpload && imgUpload !== null) {
+            const imgRef = ref(storage, `image/${imgUpload.name + v4()}`);
+            uploadBytes(imgRef, imgUpload).then(() => {
+                alert("Successful Create Room")
+            })
+        }
 
-
-    const storageRef = ref(storage, "2");
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        uploadData("room", {
-            room: formValue.room,
-            people: formValue.people,
-            price: formValue.price,
-        })
-        uploadBytes(storageRef, fileName).then((snapshot) => {
-            console.log('Uploaded a blob or file!');
-        });
-        console.log(fileName)
 
     }
+    const handleSubmit = (event) => {
+        if (imgUpload && formValue.room && formValue.people && formValue.price && formValue.add) {
+            event.preventDefault();
+            uploadData("room", {
+                room: formValue.room,
+                people: formValue.people,
+                price: formValue.price,
+                add: formValue.add,
+                name:''
+            })
+            upLoad();
+        } else {
+            event.preventDefault();
+
+            alert("Please Check Form Again")
+        }
+
+    }
+
 
     return (
         <div className="create-room">
@@ -57,12 +74,12 @@ export default function Addroom() {
                     <input name="room" value={formValue.room} type="text" onChange={handleChangeValue} ></input>
                 </div>
                 <div className="form-control">
+                    <label>Address</label>
+                    <input name="add" value={formValue.add} type="text" onChange={handleChangeValue} ></input>
+                </div>
+                <div className="form-control">
                     <label>People</label>
-                    <select name="people" value={formValue.people} onChange={handleChangeValue}>
-                        <option >1 aldut</option>
-                        <option selected >2 aldut</option>
-                        <option>Family</option>
-                    </select>
+                    <input name="people" value={formValue.people} type="number" onChange={handleChangeValue} ></input>
                 </div>
                 <div className="form-control">
                     <label>Price</label>
@@ -70,11 +87,9 @@ export default function Addroom() {
                 </div>
                 <div className="form-control">
                     <label>Picture</label>
-                    <input type="file" onChange={({ target: { files } }) => {
-                    setFileName(URL.createObjectURL(files[0]))
-                    }}  ></input>
+                    <input type="file" onChange={handleChangeImg}  ></input>
                 </div>
-                <button type="submit" onClick={handleSubmit} >Create</button>
+                <button type="submit" onClick={handleSubmit}  >Create</button>
             </form >
             <div className="list-room">
             </div>

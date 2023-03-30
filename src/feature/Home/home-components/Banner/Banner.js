@@ -11,18 +11,18 @@ export default function Banner() {
                     <div className="row" style={{ margin: "0px 0px 50px 0px" }}>
                         <div className="col-lg-4 col-md-4 col-sm-6">
                             <div className="form-group">
-                                <input style={{ height: "50px" }} id="check-in" name="arrival" placeholder="Check In" type="date" className="fancy_fild form-control" autocomplete="off" required />
+                                <input style={{ height: "50px" }} id="check-in" name="arrival" placeholder="Check In" type="date" className="fancy_fild form-control"  required />
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-6" >
                             <div className="form-group">
-                                <input style={{ height: "50px" }} id="check-out" name="depature" placeholder="Check Out" type="date" className="fancy_fild form-control" autocomplete="off" required />
+                                <input style={{ height: "50px" }} id="check-out" name="depature" placeholder="Check Out" type="date" className="fancy_fild form-control"  required />
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-6" >
                             <div className="form-group">
                                 <select style={{ height: "50px" }} className="form-select fancy_fild " aria-label="Default select example">
-                                    <option value="1" selected>Hà Nội</option>
+                                    <option value="1" defaultValue>Hà Nội</option>
                                     <option value="2">Huế</option>
                                     <option value="3">Đà Nẵng</option>
                                     <option value="3">Thành phố Hồ Chí Minh</option>
@@ -33,12 +33,12 @@ export default function Banner() {
                     <div className="row" style={{ margin: "0px 0px 0px 0px" }}>
                         <div className="col-lg-4 col-md-4 col-sm-4">
                             <div className="form-group">
-                                <input style={{ height: "50px" }} type="number" name="adult" required="required" placeholder="Adult" className="fancy_fild form-control" autocomplete="off" min="0" />
+                                <input style={{ height: "50px" }} type="number" name="adult" required="required" placeholder="Adult" className="fancy_fild form-control"  min="0" />
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4">
                             <div className="form-group">
-                                <input style={{ height: "50px" }} type="number" name="children" required="required" placeholder="Children" className="fancy_fild form-control" autocomplete="off" min="0" />
+                                <input style={{ height: "50px" }} type="number" name="children" required="required" placeholder="Children" className="fancy_fild form-control" min="0" />
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-12 col-sm-12">
