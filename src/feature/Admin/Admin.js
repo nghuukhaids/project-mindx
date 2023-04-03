@@ -1,5 +1,5 @@
 import "./Admin.css"
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "../../Context/AuthContext"

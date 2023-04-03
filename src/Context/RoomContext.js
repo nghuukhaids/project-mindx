@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react"
-import { db } from "../firebase/config";
 import { ref, listAll, getStorage, getDownloadURL, getMetadata } from "firebase/storage";
 export const RoomContext = createContext(null);
 export const RoomProvider = ({ children }) => {
@@ -9,7 +8,6 @@ export const RoomProvider = ({ children }) => {
     const storage = getStorage();
     const [room, setRoom] = useState([]);
     const imgListRef = ref(storage, "image/");
-    const [imgList, setImgList] = useState([]);
     // useEffect(() => {
     //     db.collection("room").get().then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {
@@ -34,7 +32,7 @@ export const RoomProvider = ({ children }) => {
             })
         })
 
-    }, [])
+    }, [imgListRef, storage])
     // listAll(imgListRef).then((res) => {
     //     res.items.forEach((item) => {
     //         getDownloadURL(item).then((url) => {

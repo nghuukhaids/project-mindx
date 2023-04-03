@@ -1,17 +1,13 @@
 import { useState } from 'react'
-import { db } from "../../firebase/config"
 import "./Addroom.css"
-import { getStorage, ref, uploadBytes, updateMetadata, getMetadata } from "firebase/storage";
-import { v4 } from "uuid"
-import { useEffect } from 'react';
+import { getStorage, ref, uploadBytes, updateMetadata } from "firebase/storage";
+
 
 export default function Addroom() {
-    const [fileName, setFileName] = useState("No selected File");
     const [imgUpload, setImgUpload] = useState(null);
-    const [meta, setMeta] = useState([]);
-    const uploadData = (collection, data) => {
-        db.collection(collection).add(data);
-    }
+    // const uploadData = (collection, data) => {
+    //     db.collection(collection).add(data);
+    // }
     const [formValue, setFormValue] = useState(
         {
             room: "",
