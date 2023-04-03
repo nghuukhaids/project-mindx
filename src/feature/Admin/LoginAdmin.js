@@ -6,9 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 
 export default function LoginAdmin() {
-
-
-    const { setUser, setAdmin } = useContext(AuthContext);
+    const { setAdmin } = useContext(AuthContext);
     /// Login For Admin 
     const navigate = useNavigate();
     const [formValue, setFormValue] = useState(
@@ -45,36 +43,35 @@ export default function LoginAdmin() {
     // }
     const handleSubmit = (event) => {
         event.preventDefault();
-        const user = localStorage.getItem("username");
-        const data = JSON.parse(user);
+        const useradmin = localStorage.getItem("username");
+        const data = JSON.parse(useradmin);
         if (data &&
             formValue.email === data.email && formValue.password === data.password
         ) {
-            setUser({});
             navigate("/admin");
             setAdmin({ email: data.email, password: data.password })
             console.log(data);
+
+
         } else if (formValue.email === "admin@gmail.com" && formValue.password === "123123") {
             const json = JSON.stringify(formValue);
             localStorage.setItem("username", json);
-            setUser({});
             navigate("/admin");
             setAdmin({ email: formValue.email, password: formValue.password })
         }
-        else {alert("Email or Password is incorrect")}
+        else { alert("Email or Password is incorrect") }
     }
 
     const user = localStorage.getItem("username");
     const data = JSON.parse(user);
     if (data && data.email === "admin@gmail.com" && data.password === "123123") {
-        setUser({});
         navigate("/admin");
         setAdmin({ email: data.email, password: data.password })
         console.log(data);
     }
 
     return (
-        <div div className="login" >
+        <div className="login" >
             <section className="vh-100 gradient-custom">
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">

@@ -1,13 +1,14 @@
-import {  useState } from 'react'
+import { useState } from 'react'
 import { db } from "../../firebase/config"
 import "./Addroom.css"
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes, updateMetadata, getMetadata } from "firebase/storage";
 import { v4 } from "uuid"
+import { useEffect } from 'react';
 
 export default function Addroom() {
     const [fileName, setFileName] = useState("No selected File");
     const [imgUpload, setImgUpload] = useState(null);
-
+    const [meta, setMeta] = useState([]);
     const uploadData = (collection, data) => {
         db.collection(collection).add(data);
     }
@@ -38,33 +39,82 @@ export default function Addroom() {
     }
     const upLoad = () => {
         if (imgUpload && imgUpload !== null) {
-            const imgRef = ref(storage, `image/${imgUpload.name + v4()}`);
+            const imgRef = ref(storage, `image/${imgUpload.name + `${formValue.room}`}`);
+            const metadata = {
+                customMetadata: {
+                    room: formValue.room,
+                    people: formValue.people,
+                    price: formValue.price,
+                    add: formValue.add,
+                    name: ""
+                }
+            };
             uploadBytes(imgRef, imgUpload).then(() => {
+                updateMetadata(imgRef, metadata)
                 alert("Successful Create Room")
             })
+
+
         }
-
-
     }
     const handleSubmit = (event) => {
         if (imgUpload && formValue.room && formValue.people && formValue.price && formValue.add) {
             event.preventDefault();
-            uploadData("room", {
-                room: formValue.room,
-                people: formValue.people,
-                price: formValue.price,
-                add: formValue.add,
-                name:''
-            })
             upLoad();
         } else {
             event.preventDefault();
-
             alert("Please Check Form Again")
         }
-
     }
+    // const upLoad = () => {
+    //     if (imgUpload && imgUpload !== null) {
+    //         const imgRef = ref(storage, `image/${imgUpload.name + `${formValue.room}`}`);
+    //         const metadata = {
+    //             customMetadata: {
+    //                 'location': 'Yosemite, CA, USA',
+    //                 'activity': 'Hiking'
+    //             }
+    //         };
+    //         uploadBytes(imgRef, imgUpload).then(() => {
+    //             updateMetadata(imgRef, metadata)
+    //             alert("Successful Create Room")
+    //         })
 
+
+    //     }
+    // }
+    // const handleSubmit = (event) => {
+    //     if (imgUpload && formValue.room && formValue.people && formValue.price && formValue.add) {
+    //         event.preventDefault();
+    //         db.collection("room").doc().set({
+    //             room: formValue.room,
+    //             people: formValue.people,
+    //             price: formValue.price,
+    //             add: formValue.add,
+    //             name: ""
+    //         });
+    //         upLoad();
+
+
+    //     } else {
+    //         event.preventDefault();
+    //         alert("Please Check Form Again")
+    //     }
+    // }
+
+    // const getMeta = (event) => {
+    //     event.preventDefault();
+    //     const forestRef = ref(storage, `image/Love.jfifdataaaaa`);
+    //     getMetadata(forestRef
+    //     )
+    //         .then((metadata) => {
+    //             console.log(metadata.customMetadata)
+    //         })
+    // }
+
+
+
+    console.log(meta)
 
     return (
         <div className="create-room">
@@ -90,6 +140,7 @@ export default function Addroom() {
                     <input type="file" onChange={handleChangeImg}  ></input>
                 </div>
                 <button type="submit" onClick={handleSubmit}  >Create</button>
+
             </form >
             <div className="list-room">
             </div>

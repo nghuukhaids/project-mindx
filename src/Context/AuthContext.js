@@ -1,11 +1,12 @@
 import { createContext, useState, useEffect } from "react"
 import { auth } from "../firebase/config";
-export const AuthContext = createContext(null);
+export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [admin, setAdmin] = useState(
         { email: "", password: "" }
     )
+
 
     useEffect(() => {
 
@@ -13,14 +14,12 @@ export const AuthProvider = ({ children }) => {
             if (user) {
                 const { displayName, email, uid, photoUrl } = user;
                 setUser({ displayName, email, uid, photoUrl });
-                setAdmin({ email: "", password: "" });
             }
         })
         return (() => {
             unsubcribed()
         })
-    }
-        , [setUser])
+    }, [])
 
 
 
