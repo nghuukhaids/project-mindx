@@ -49,6 +49,8 @@ export default function Nav() {
                             </div>
 
                             <form className="d-flex" role="search">
+                                <NavLink className={activeClass} to="/loginadmin">admin</NavLink>
+
                                 <input className="form-control me-4" type="search" placeholder="Search" aria-label="Search" />
                                 <button id="search-btn" className="btn btn-outline-success" type="submit">Search</button>
                             </form>
@@ -69,8 +71,10 @@ export default function Nav() {
                                     <NavLink id="nav-item" className={activeClass} to="/blog">Blog</NavLink>
                                     <NavLink id="nav-item" className={activeClass} to="/contactus">Contact Us</NavLink>
                                     <NavLink id="nav-item" className={activeClass} to="/login">Login</NavLink>
+
                                 </div>
                                 <form className="d-flex" role="search">
+                                    <NavLink className={activeClass} to="/loginadmin">admin</NavLink>
                                     <input className="form-control me-4" type="search" placeholder="Search" aria-label="Search" />
                                     <button id="search-btn" className="btn btn-outline-success" type="submit">Search</button>
                                 </form>
