@@ -42,7 +42,7 @@ export default function Room() {
     // for (let index = 0; index < imgList.length; index++) {
     //     room[index].name = imgList[index].url
     // }
-    const { room, imgList } = useContext(RoomContext);
+    const { room } = useContext(RoomContext);
     function formatCash(str) {
         return str.split('').reverse().reduce((prev, next, index) => {
             return ((index % 3) ? next : (next + ',')) + prev
@@ -50,7 +50,6 @@ export default function Room() {
     }
 
     console.log("room", room)
-    console.log("imgList", imgList)
 
 
 

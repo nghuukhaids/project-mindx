@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState, useEffect, useCallback } from "react"
 import { ref, listAll, getStorage, getDownloadURL, getMetadata } from "firebase/storage";
 export const RoomContext = createContext(null);
 export const RoomProvider = ({ children }) => {
@@ -8,6 +8,8 @@ export const RoomProvider = ({ children }) => {
     const storage = getStorage();
     const [room, setRoom] = useState([]);
     const imgListRef = ref(storage, "image/");
+    const [mount, setMount] = useState(false)
+
     // useEffect(() => {
     //     db.collection("room").get().then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {
@@ -16,7 +18,21 @@ export const RoomProvider = ({ children }) => {
     //         );
     //     })
     // }, []);
-    useEffect(() => {
+    // const loadData = () => {
+    //     listAll(imgListRef).then((res) => {
+    //         res.items.forEach((item) => {
+    //             const forestRef = ref(storage, item._location.path_);
+    //             getDownloadURL(item)
+    //                 .then((url) => {
+    //                     getMetadata(forestRef)
+    //                         .then((metadata) => {
+    //                             setRoom((prev) => [...prev, { info: metadata.customMetadata, url: url }]);
+    //                         })
+    //                 })
+    //         })
+    //     })
+    // }
+    const loadData = useCallback(() => {
         listAll(imgListRef).then((res) => {
             res.items.forEach((item) => {
                 const forestRef = ref(storage, item._location.path_);
@@ -27,12 +43,18 @@ export const RoomProvider = ({ children }) => {
                                 setRoom((prev) => [...prev, { info: metadata.customMetadata, url: url }]);
                             })
                     })
-
-
             })
         })
-
     }, [imgListRef, storage])
+
+    useEffect(() => {
+        if (!mount) {
+            setMount(true);
+            loadData();
+
+        }
+    }, [loadData, mount]);
+
     // listAll(imgListRef).then((res) => {
     //     res.items.forEach((item) => {
     //         getDownloadURL(item).then((url) => {
