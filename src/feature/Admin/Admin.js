@@ -8,7 +8,7 @@ export default function Admin() {
     const { setAdmin } = useContext(AuthContext);
     const logOut = () => {
         setAdmin("");
-         localStorage.removeItem('username');
+        localStorage.removeItem('username');
     }
     return (
         <div className="box">
@@ -19,6 +19,8 @@ export default function Admin() {
                         <NavLink to="/admin">Booking Order</NavLink>
                         <NavLink to="/admin/room">Adding Room</NavLink>
                         <button onClick={logOut}>Log Out</button>
+                        <NavLink to="/">User</NavLink>
+
                     </div>
                 </div>
                 <div className="main">
