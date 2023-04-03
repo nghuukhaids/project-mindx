@@ -12,7 +12,7 @@ export default function Booking() {
             }
             );
         })
-    }, [])
+    }, [sum])
     console.log("booking", booking)
     const sortByTime = (a, b) => {
         return new Date(b.date) - new Date(a.date);
