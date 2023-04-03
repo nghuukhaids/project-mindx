@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
-import { AuthContext } from "../../Context/AuthContext"
-import {  useContext } from "react";
+// import { AuthContext } from "../../Context/AuthContext"
+// import {  useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import firebase, { auth } from "../../firebase/config";
@@ -14,7 +14,7 @@ export default function Login() {
     }
     ////
     const navigate = useNavigate();
-    const { setUser, setAdmin } = useContext(AuthContext);
+    // const { setUser, setAdmin } = useContext(AuthContext);
 
     ///// Pop up Login For User
     const handleFbLogin = () => {
@@ -89,7 +89,7 @@ export default function Login() {
                                             <label for="typePasswordX">Password</label>
                                             <input type="password" id="typePasswordX" className="form-control form-control-lg" />
                                         </div>
-                                        <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!"></a></p>
+                                        {/* <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!"></a></p> */}
                                         <button className="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                                         <div className="d-flex justify-content-center text-center mt-4 pt-1">
                                             <a href="#!" className="text-white" onClick={handleFbLogin}><i className="fab fa-facebook-f fa-lg"></i></a>

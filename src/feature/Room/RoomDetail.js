@@ -53,7 +53,7 @@ function RoomDetail() {
             alert("Please Log In To Book Room")
             navigate("/login")
         } else if (window.confirm("Booking Confirm Again") === true) {
-            if (formBooking.in && formBooking.out && formBooking.adult && formBooking.cus || formBooking.in && formBooking.out && formBooking.children && formBooking.cus) {
+            if ((formBooking.in && formBooking.out && formBooking.adult && formBooking.cus) || (formBooking.in && formBooking.out && formBooking.children && formBooking.cus)) {
                 event.preventDefault();
                 uploadData("booking-order", {
                     in: formBooking.in,
@@ -81,7 +81,7 @@ function RoomDetail() {
         < div classNameName="room-detail" >
             <div classNameName="container">
                 <div className="banner">
-                    <img style={{ height: "500px", width: "100%" }} src={Banner}></img>
+                    <img alt="banner" style={{ height: "500px", width: "100%" }} src={Banner}></img>
                     <p>ROOM DETAIL</p>
                 </div>
                 {
@@ -98,7 +98,7 @@ function RoomDetail() {
                                                         <hr />
                                                     </div>
                                                     <div className="product_detail_slider1">
-                                                        <img style={{ width: '100%' }} src={itemFilter.url} alt="image" />
+                                                        <img style={{ width: '100%' }} src={itemFilter.url} alt="anh" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -273,7 +273,7 @@ function RoomDetail() {
                                                             <div>info@example.com</div>
                                                         </address>
                                                         <div className="hotel_loca_map">
-                                                            <iframe style={{ width: "100%", height: "200px" }} src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d227983.263496325!2d75.80659278740234!3d26.768666699297366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1518501774240" allowFullScreen />
+                                                            <iframe title="myFrame" style={{ width: "100%", height: "200px" }} src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d227983.263496325!2d75.80659278740234!3d26.768666699297366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1518501774240" allowFullScreen />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -300,7 +300,7 @@ function RoomDetail() {
                                             </div>
                                             <div className="row footer_bottom">
                                                 <div className="col-lg-3 col-md-6">
-                                                    <a href="#"><img src="/resources/assets/images/logo.png" alt="" /></a>
+                                                    <img src="/resources/assets/images/logo.png" alt="logo" />
                                                     <p className="justify_text">Lorem ipsum dolor sit amet, consectetur
                                                         adipiscing elit. Praesent a nisl vel nunc posuere rhoncus. Su
                                                         spendisse tortor orci, pulvinar in tincidunt non, sodales vitae
@@ -309,33 +309,33 @@ function RoomDetail() {
                                                 <div className="col-lg-3 col-md-6">
                                                     <h4>USEFUL LINKS</h4>
                                                     <ul className="footer_links">
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Home</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Hotels</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Pages</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Blog</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Extra</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Home</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Hotels</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Pages</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Blog</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Extra</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className="col-lg-3 col-md-6">
                                                     <h4>QUICK LINKS</h4>
                                                     <ul className="footer_links">
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">My
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">My
                                                             Accounts</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">wishlist</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Review</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">FAQ</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Privacy</a></li>
-                                                        <li><i className="fa fa-angle-double-right" /><a href="#">Terms &amp; Conditions</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">wishlist</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Review</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">FAQ</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Privacy</a></li>
+                                                        <li><i className="fa fa-angle-double-right" /><a href="#!">Terms &amp; Conditions</a></li>
                                                     </ul>
                                                 </div>
                                                 <div className="col-lg-3 col-md-6">
                                                     <h4>SOCIAL LINKS</h4>
                                                     <ul className="footer_socail">
-                                                        <li><a href="#"><i className="fa fa-facebook" /></a></li>
-                                                        <li><a href="#"><i className="fa fa-twitter" /></a></li>
-                                                        <li><a href="#"><i className="fa fa-google-plus" /></a></li>
-                                                        <li><a href="#"><i className="fa fa-pinterest-p" /></a></li>
-                                                        <li><a href="#"><i className="fa fa-instagram" /></a></li>
+                                                        <li><a href="#!"><i className="fa fa-facebook" /></a></li>
+                                                        <li><a href="#!"><i className="fa fa-twitter" /></a></li>
+                                                        <li><a href="#!"><i className="fa fa-google-plus" /></a></li>
+                                                        <li><a href="#!"><i className="fa fa-pinterest-p" /></a></li>
+                                                        <li><a href="#!"><i className="fa fa-instagram" /></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -343,8 +343,8 @@ function RoomDetail() {
                                                 <div className="footer_widget col-lg-6">
                                                     <ul>
                                                         <li>Download Our APP :</li>
-                                                        <li><a href="#"><i className="fa fa-android" aria-hidden="true" /></a></li>
-                                                        <li><a href="#"><i className="fa fa-apple" aria-hidden="true" /></a></li>
+                                                        <li><i className="fa fa-android" aria-hidden="true" /></li>
+                                                        <li><i className="fa fa-apple" aria-hidden="true" /></li>
                                                     </ul>
                                                 </div>
                                                 <div className="col-lg-6">

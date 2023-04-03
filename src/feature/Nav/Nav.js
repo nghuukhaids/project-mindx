@@ -1,7 +1,7 @@
-import { NavLink, useNavigate, useFetcher } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from "../../Asset/img/logo.png";
 import "./Nav.css";
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import { auth } from "../../firebase/config"
 export default function Nav() {
@@ -9,7 +9,6 @@ export default function Nav() {
         return params.isActive ? "active-item" : ""
     }
     const { user, setUser } = useContext(AuthContext);
-    const navigate = useNavigate();
     const [pending, setPending] = useState(false);
     const handleLogOut = (user) => {
 
@@ -29,7 +28,7 @@ export default function Nav() {
             {
                 user.displayName ? (<nav style={{ backgroundColor: "black" }} className="navbar navbar-expand-lg bg-body-tertiary">
                     <div className="container-fluid" style={{ padding: "0px   " }}>
-                        <NavLink className="navbar-brand" href="#"><img src={logo}></img></NavLink>
+                        <NavLink className="navbar-brand" href="#"><img alt="logo" src={logo}></img></NavLink>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -58,7 +57,7 @@ export default function Nav() {
                 </nav>) :
                     (<nav style={{ backgroundColor: "black" }} className="navbar navbar-expand-lg bg-body-tertiary">
                         <div className="container-fluid">
-                            <NavLink className="navbar-brand" href="#"><img src={logo}></img></NavLink>
+                            <NavLink className="navbar-brand" href="#"><img alt="logo" src={logo}></img></NavLink>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>

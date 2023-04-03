@@ -64,7 +64,7 @@ export default function Room() {
                         <div className="col-xl-4" key={index} style={{ marginBottom: "50px", padding: "0px", fontFamily: "unset" }} >
                             <div className=" d-flex flex-column justify-content-center align-items-center">
                                 <NavLink to={`/room/${item.info.room}`} className={activeClass} id="img-link">
-                                    <img style={{ width: "400px", height: "300px", borderRadius: "10px" }} src={item.url}></img>
+                                    <img alt="room-img" style={{ width: "400px", height: "300px", borderRadius: "10px" }} src={item.url}></img>
                                     <p className="detail">DETAIL</p>
                                 </NavLink>
                                 <div className="d-flex align-items-center">
