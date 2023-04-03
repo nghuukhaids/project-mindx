@@ -110,7 +110,6 @@ export default function Addroom() {
 
 
 
-    console.log(meta)
 
     return (
         <div className="create-room">

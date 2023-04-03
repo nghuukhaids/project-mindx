@@ -66,7 +66,7 @@ export const RoomProvider = ({ children }) => {
     // }
 
     return (
-        <RoomContext.Provider value={{ room, imgList }}>
+        <RoomContext.Provider value={{ room }}>
             {children}
         </RoomContext.Provider>
     )
