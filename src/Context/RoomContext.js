@@ -5,11 +5,11 @@ export const RoomProvider = ({ children }) => {
     // const activeClass = (p) => {
     //     return p.isActive ? "active-item" : ""
     // }
+    const [filterForm, setFilterForm] = useState("");
     const storage = getStorage();
     const [room, setRoom] = useState([]);
     const imgListRef = ref(storage, "image/");
     const [mount, setMount] = useState(false)
-
     // useEffect(() => {
     //     db.collection("room").get().then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {
@@ -51,7 +51,6 @@ export const RoomProvider = ({ children }) => {
         if (!mount) {
             setMount(true);
             loadData();
-
         }
     }, [loadData, mount]);
 
@@ -62,7 +61,7 @@ export const RoomProvider = ({ children }) => {
     //         })
     //     })
     // })
-    console.log(room)
+    console.log("room", room)
     // useEffect(() => {
     //     db.collection("room").get().then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {
@@ -88,7 +87,7 @@ export const RoomProvider = ({ children }) => {
     // }
 
     return (
-        <RoomContext.Provider value={{ room }}>
+        <RoomContext.Provider value={{ room, filterForm, setFilterForm }}>
             {children}
         </RoomContext.Provider>
     )

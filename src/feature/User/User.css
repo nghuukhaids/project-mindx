@@ -1,0 +1,32 @@
+.your-list-booking-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.your-list-booking-box>h1 {
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    font-size: 50px
+}
+
+table {
+    width: 90%;
+    font-size: 20px;
+    margin: auto;
+    border: 2px solid green;
+    background-color: white;
+}
+
+
+
+table,
+th,
+td {
+    height: 50px
+}
+
+.table-div {
+    background-color: rgba(57, 48, 48, 0.488)
+}

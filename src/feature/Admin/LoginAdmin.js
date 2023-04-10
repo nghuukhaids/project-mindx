@@ -71,7 +71,7 @@ export default function LoginAdmin() {
     }
 
     return (
-        <div className="login" >
+        <div style={{ backgroundColor: "blue" }} className="login-admin" >
             <section className="vh-100 gradient-custom">
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -80,7 +80,9 @@ export default function LoginAdmin() {
                                 <div className="card-body p-5 text-center">
                                     <div className="mb-md-5 mt-md-4 pb-5">
                                         <div>
-                                            <NavLink id="login-head">ADMIN</NavLink>
+                                            <NavLink id="login-head">ADMIN / </NavLink>
+                                            <NavLink id="login-head" to="/">USER</NavLink>
+
                                         </div>
                                         <div className="form-white mb-4">
                                             <label for="typeEmailX">Email</label>
@@ -93,10 +95,7 @@ export default function LoginAdmin() {
                                         <button className="btn btn-outline-light btn-lg px-5" type="submit" onClick={handleSubmit}>Login</button>
 
                                     </div>
-                                    <div>
-                                        <p className="mb-0">Don't have an account? <a href="#!" className="text-white-50 fw-bold">Sign Up</a>
-                                        </p>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

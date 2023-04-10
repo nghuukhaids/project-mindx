@@ -53,3 +53,7 @@ svg {
 .yemm_top_price {
     background-color: rgb(80, 80, 80)
 }
+
+#disable {
+    background-color: black;
+}

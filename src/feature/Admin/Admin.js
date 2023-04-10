@@ -18,9 +18,9 @@ export default function Admin() {
                     <div className="Content-Nav d-flex flex-column">
                         <NavLink to="/admin">Booking Order</NavLink>
                         <NavLink to="/admin/room">Adding Room</NavLink>
-                        <button onClick={logOut}>Log Out</button>
+                        <NavLink to="/admin/chat">Chat</NavLink>
                         <NavLink to="/">User</NavLink>
-
+                        <button onClick={logOut}>Log Out</button>
                     </div>
                 </div>
                 <div className="main">

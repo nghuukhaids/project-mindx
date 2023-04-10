@@ -20,14 +20,14 @@ export default function RecommentDes() {
                         <div className="col-lg-3 col-md-3">
                             <div className="yemm_desti_blog" style={{ height: "50%" }}>
                                 <img src={HaNoi} className="img-fluid" alt="" style={{ height: "100%", padding: "0px 0px 10px 25px" }} />
-                                <div className="yemm_desti_inner flex-grow-1"  style={{ height: "100%", padding: "0px 0px 10px 25px" }} >
+                                <div className="yemm_desti_inner flex-grow-1" style={{ height: "100%", padding: "0px 0px 10px 25px" }} >
                                     <h3>Hà Nội</h3>
                                     <label>240 HOTELS</label>
                                 </div>
                             </div>
                             <div className="yemm_desti_blog" style={{ height: "50%" }}>
                                 <img src={Hue} className="img-fluid" alt="" style={{ height: "100%", padding: "10px 0px 0px 25px" }} />
-                                <div className="yemm_desti_inner"style={{ height: "100%", padding: "10px 0px 0px 25px" }} >
+                                <div className="yemm_desti_inner" style={{ height: "100%", padding: "10px 0px 0px 25px" }} >
                                     <h3>Huế</h3>
                                     <label>430 HOTELS</label>
                                 </div>

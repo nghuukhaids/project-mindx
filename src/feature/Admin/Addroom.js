@@ -13,7 +13,6 @@ export default function Addroom() {
             room: "",
             people: "",
             price: "",
-            add: ""
         }
     )
     const handleChangeValue = (event) => {
@@ -41,8 +40,7 @@ export default function Addroom() {
                     room: formValue.room,
                     people: formValue.people,
                     price: formValue.price,
-                    add: formValue.add,
-                    name: ""
+                    
                 }
             };
             uploadBytes(imgRef, imgUpload).then(() => {
@@ -54,7 +52,7 @@ export default function Addroom() {
         }
     }
     const handleSubmit = (event) => {
-        if (imgUpload && formValue.room && formValue.people && formValue.price && formValue.add) {
+        if (imgUpload && formValue.room && formValue.people && formValue.price) {
             event.preventDefault();
             upLoad();
         } else {
@@ -118,10 +116,7 @@ export default function Addroom() {
                     <label>Room</label>
                     <input name="room" value={formValue.room} type="text" onChange={handleChangeValue} ></input>
                 </div>
-                <div className="form-control">
-                    <label>Address</label>
-                    <input name="add" value={formValue.add} type="text" onChange={handleChangeValue} ></input>
-                </div>
+
                 <div className="form-control">
                     <label>People</label>
                     <input name="people" value={formValue.people} type="number" onChange={handleChangeValue} ></input>
