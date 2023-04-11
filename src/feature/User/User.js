@@ -8,11 +8,7 @@ import "./User.css"
 function User() {
     const { booking } = useContext(BookingContext);
     const { user } = useContext(AuthContext)
-    const listBooking = () => {
-        if (user) {
 
-        }
-    }
     // const postValue = document.getElementById("postElement");
     // const changeText = (postElement, value) => {
     //     postElement.innerHTML = value
@@ -29,18 +25,18 @@ function User() {
     // });
     const handleCancel = (e) => {
         e.preventDefault();
+
         db.collection("booking-order").doc(e.target.id).update({
             cancel: "waiting"
         })
         alert("Waiting For Admin To Cancel Your Room")
-
     }
 
     console.log(booking)
     return (
         <div className="user">
             <div className="your-list-booking-box" style={{ height: "500px", width: "100%" }}>
-                <img style={{ height: "500px", width: "100%" }} src={ListBooking}></img>
+                <img alt={user} style={{ height: "500px", width: "100%" }} src={ListBooking}></img>
                 <h1>YOUR BOOKED ROOM</h1>
             </div>
             <div className="table-div">      <table >
@@ -58,7 +54,7 @@ function User() {
                 <tbody>
                     {booking.filter((book) => (book.account === user.email && book.capital === true)).map((filterUser) =>
                     (<tr>
-                        <td scope="row">{booking.indexOf(filterUser) + 1}</td>
+                        <td>{booking.indexOf(filterUser) + 1}</td>
                         <td>{filterUser.bookDate}</td>
                         <td>{filterUser.room} </td>
                         <td>{filterUser.in} </td>

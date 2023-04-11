@@ -13,7 +13,6 @@ function RoomDetail() {
     const { user } = useContext(AuthContext);
     const { room } = useContext(RoomContext);
     const { nameRoom } = useParams();
-    const { filterForm } = useContext(RoomContext);
     const { booking } = useContext(BookingContext);
     const [init, setInit] = useState(null);
 
@@ -57,7 +56,7 @@ function RoomDetail() {
     const filterBooking = useCallback(() => {
         const a = booking.filter((item) => (item.room === nameRoom && item.in === formBooking.in && item.out === formBooking.out))
         return a
-    }, [formBooking]);
+    }, [formBooking, nameRoom,booking]);
     useEffect(() => {
         filterBooking();
         setInit(filterBooking())

@@ -2,7 +2,6 @@ import { createContext, useState, useEffect, useCallback } from "react"
 import { db } from "../firebase/config";
 export const BookingContext = createContext({});
 export const BookingProvider = ({ children }) => {
-    const sum = [];
     const [booking, setBooking] = useState([]);
     // useEffect(() => {
     //     db.collection("booking-order").get().then((querySnapshot) => {
@@ -13,7 +12,7 @@ export const BookingProvider = ({ children }) => {
     //         );
     //     })
     // }, []);
-    const [mount, setMount] = useState("1")
+    const mount = "1";
     // const fetchMessage = useCallback(() => {
     //     db.collection("booking-order").where("capital", "!==", mount).then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {
@@ -27,8 +26,6 @@ export const BookingProvider = ({ children }) => {
     const fetchMessage = useCallback(() => {
         db.collection("booking-order").where("status", "==", mount).onSnapshot((snapshot) => {
             setBooking(snapshot.docs.map(doc => doc.data()));
-            console.log(booking)
-
         })
     }, [mount])
     console.log(booking);

@@ -13,7 +13,6 @@ export default function SignUp() {
         password: "",
         passwordCf: ""
     });
-    const [user, setUser] = useState({});
     const handleFormValueChange = (e) => {
         const { name, value } = e.target;
         setFormValue({

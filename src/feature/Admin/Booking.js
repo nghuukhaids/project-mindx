@@ -1,8 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { db } from "../../firebase/config";
 import { BookingContext } from "../../Context/BookingContext";
-import { getDatabase, ref, set } from "firebase/database";
-import { AuthContext } from "../../Context/AuthContext";
 import "./Booking.css"
 export default function Booking() {
     // const sum = [];
@@ -21,27 +19,26 @@ export default function Booking() {
         return new Date(b.date) - new Date(a.date);
     }
     const { booking } = useContext(BookingContext);
-    const { user } = useContext(AuthContext);
     const handleConfirmBooking = (e) => {
         e.preventDefault();
         const btn = document.getElementById(e.target.id);
         btn.style.display = "none";
         console.log(e);
-        const id = document.getElementById("account").innerHTML;
-        const name = document.getElementById("name").innerHTML;
-        console.log(id);
         db.collection("booking-order").doc(e.target.id).update({
             capital: true
         })
 
     }
     const handleCancel = (e) => {
-        console.log(typeof(e.target.id))
-        db.collection("booking-order").doc(e.target.id).delete().then(() => {
-            console.log("Document successfully deleted!");
-        }).catch((error) => {
-            console.error("Error removing document: ", error);
-        });
+        console.log(e.target.id);
+        if (e.target.id) {
+            db.collection("booking-order").doc(e.target.id).delete().then(() => {
+                console.log("Document successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+        }
+
     }
 
     console.log(booking)

@@ -8,7 +8,6 @@ import "./Chat.css"
 export default function Chat() {
     const [inputMess, setInputMess] = useState("");
     const [message, setMessage] = useState([]);
-    const [idMess, setIdMess] = useState(0);
     const [listUser, setListUser] = useState([]);
     const [userToChat, setUserToChat] = useState([]);
     const handleSend = (e) => {
@@ -51,7 +50,6 @@ export default function Chat() {
             setMessage(snapshot.docs.map(doc => doc.data()).sort(function (sv1, sv2) {
                 return sv2.createAt - sv1.createAt
             }))
-            console.log(message)
         })
     }, [userToChat])
     useEffect(() => {

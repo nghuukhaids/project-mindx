@@ -7,7 +7,7 @@ export default function About() {
         <div className="about">
             <div className="about-us-box">
                 <h1>About US</h1>
-                <img className="about-us-banner" src={Aboutus1}></img>
+                <img alt="banner" className="about-us-banner" src={Aboutus1}></img>
             </div>
             <div className="content-about-us">
                 <div className="content-about-us-left">
@@ -16,7 +16,7 @@ export default function About() {
                         <br></br>
                         Proin nisl mi, eleifend in faucibus et, venenatis eu turpis. Ut hendrerit eleifend odio. Nullam ullamcorper viverra ex quis tempus. In hac habitasse platea dictumst. Vestibulum sed tempor metus.</p>
                 </div>
-                <img src={Aboutus2}></img>
+                <img alt="aboutus2" src={Aboutus2}></img>
             </div>
             <Footer></Footer>
         </div>

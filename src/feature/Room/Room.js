@@ -2,7 +2,7 @@
 import { NavLink } from "react-router-dom"
 import "./Room.css"
 import { RoomContext } from "../../Context/RoomContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { BookingContext } from "../../Context/BookingContext";
 
 export default function Room() {
@@ -11,7 +11,6 @@ export default function Room() {
     };
     const { booking } = useContext(BookingContext);
     const { filterForm } = useContext(RoomContext);
-    const [disable, setDisable] = useState("show")
     // const sum = [];
     // const [room, setRoom] = useState([]);
     // const storage = getStorage();
@@ -52,7 +51,7 @@ export default function Room() {
         return str.split('').reverse().reduce((prev, next, index) => {
             return ((index % 3) ? next : (next + ',')) + prev
         })
-    }
+    };
     function uniqByKeepFirst(a, key) {
         let seen = new Set();
         return a.filter(item => {
@@ -90,8 +89,9 @@ export default function Room() {
         )
         return itemfilter
     }
-    console.log(Filter())
-
+    console.log(Filter());
+    console.log("booking", booking);
+    console.log("filterForm", filterForm);
     return (
         <div style={{ height: "100%", width: "100%" }}>
 
@@ -110,7 +110,7 @@ export default function Room() {
                                                 <p className="detail">DETAIL</p>
                                             </NavLink>
                                             {uniqByKeepFirst(booking, it => it.capital).filter((book) =>
-                                                (book.room === item.info.room && book.capital === true && book.in === filterForm.in && book.out === filterForm.out)).map((filter) => {
+                                                ((book.room === item.info.room) && (book.capital === true) && (book.in === filterForm.in) && (book.out === filterForm.out))).map(() => {
                                                     return (<h1>Reserved</h1>)
                                                 })
                                             }
