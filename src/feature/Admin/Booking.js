@@ -31,13 +31,12 @@ export default function Booking() {
     }
     const handleCancel = (e) => {
         console.log(e.target.id);
-        if (e.target.id) {
             db.collection("booking-order").doc(e.target.id).delete().then(() => {
                 console.log("Document successfully deleted!");
             }).catch((error) => {
                 console.error("Error removing document: ", error);
             });
-        }
+        
 
     }
 
